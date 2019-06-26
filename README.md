@@ -4,18 +4,18 @@ This project is aimed at implementing **Online Driver State Monitoring** to chec
 
 ### H/W Setup
 The Hardware requirements are as below:
-*DesignWare ARC IoT Development Kit
-*MQ3 alcohol sensor
-*Camera 
-*Circuit Design Components(Resistors, Capacitors)
-*Alarms 
-*Battery pack
-*16x2 LCD
-*DC Motors  
+- DesignWare ARC IoT Development Kit
+- MQ3 alcohol sensor
+- Camera 
+- Circuit Design Components(Resistors, Capacitors)
+- Alarms 
+- Battery pack
+- 16x2 LCD
+- DC Motors  
 
 ### S/W Setup
 The Software requirements are as below:
-*embARC Open Source Platform
-*MetaWare Development Toolkit & GNU Toolchain
+- embARC Open Source Platform
+- MetaWare Development Toolkit & GNU Toolchain
 
 This project has certain challenges like mounting of camera at the right location. The location of the camera is very important since the image being captured depends entirely on where the camera is placed. The camera should be placed such that the entire face of the driver be captured in the images for us to take reliable inferences. The positioning of the sensor is also critical as it's placement should not hinder the driver in any way but at the same time be at a position so that it can sense the breath exhaled by the driver in its entirety. 
