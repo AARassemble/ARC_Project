@@ -1,0 +1,2589 @@
+MetaWare Linker (ELF/ARCompact2) P-2019.03 (build 002)
+(c) Copyright 1995-2019, Synopsys, Inc.
+
+
+Command line: C:/ARC/MetaWare/arc/bin/ldac.exe\
+		 -U.vectors -q -zpurge\
+		 -Coutput=obj_iotdk_10/mw_arcem9d/blinky_mw_arcem9d.map\
+		 -Csections -Ccrossfunc -Csize -zstdout\
+		 obj_iotdk_10/mw_arcem9d/linker_mw.ldf\
+		 obj_iotdk_10/mw_arcem9d/application/./main.o\
+		 obj_iotdk_10/mw_arcem9d/board/board.o\
+		 obj_iotdk_10/mw_arcem9d/arc/startup/arc_cxx_support.o\
+		 obj_iotdk_10/mw_arcem9d/arc/startup/arc_startup.o\
+		 -Bgrouplib obj_iotdk_10/mw_arcem9d/libembarc.a\
+		 -LC:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib\
+		 C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/xcheckno.o\
+		 -lc++ -lfpudadiv -lct -lhlt -lmw -zgnu -o\
+		 obj_iotdk_10/mw_arcem9d/blinky_mw_arcem9d.elf
+
+Arguments after expansion:
+	 -U.vectors -q -zpurge \
+	-Coutput=obj_iotdk_10/mw_arcem9d/blinky_mw_arcem9d.map \
+	-Csections -Ccrossfunc -Csize -zstdout \
+	obj_iotdk_10/mw_arcem9d/application/./main.o \
+	obj_iotdk_10/mw_arcem9d/board/board.o \
+	obj_iotdk_10/mw_arcem9d/arc/startup/arc_cxx_support.o \
+	obj_iotdk_10/mw_arcem9d/arc/startup/arc_startup.o -Bgrouplib \
+	obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o) \
+	obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o) \
+	obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer.o) \
+	obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_gpio.o) \
+	obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_init.o) \
+	obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o) \
+	obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(mux.o) \
+	obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(sysconf.o) \
+	obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o) \
+	obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o) \
+	obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(xprintf.o) \
+	obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_cache.o) \
+	obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o) \
+	obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_timer.o) \
+	obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exc_asm.o) \
+	obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o) \
+	obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_uart.o) \
+	obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o) \
+	-LC:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib \
+	C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/xcheckno.o \
+	C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/libct.a(vectors.o) \
+	C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/libmw.a(_ac_init_ad.o) \
+	-zgnu -o obj_iotdk_10/mw_arcem9d/blinky_mw_arcem9d.elf 
+
+Command file "obj_iotdk_10/mw_arcem9d/linker_mw.ldf":
+    #line 1 "../../../board/linker_template_mw.ld"
+    #line 1 "<built-in>"
+    #line 1 "../../../board/linker_template_mw.ld"
+
+    #line 1 "../../../board/iotdk/configs/10\\target_mem_config.h"
+    #line 34 "../../../board/iotdk/configs/10\\target_mem_config.h"
+    #line 1 "../../../inc/arc\\arc_feature_config.h"
+    #line 46 "../../../inc/arc\\arc_feature_config.h"
+    #line 1 "obj_iotdk_10/mw_arcem9d/embARC_generated\\core_config.h"
+    #line 47 "../../../inc/arc\\arc_feature_config.h"
+    #line 35 "../../../board/iotdk/configs/10\\target_mem_config.h"
+    #line 3 "../../../board/linker_template_mw.ld"
+
+    MEMORY {
+
+     REGION_ICCM : ORIGIN = 0x20000000, LENGTH = 0x40000
+
+
+     REGION_DCCM : ORIGIN = 0x80000000, LENGTH = 0x20000
+
+
+     REGION_EXT_ROM : ORIGIN = 0x0, LENGTH = 0x40000
+
+
+     REGION_EXT_RAM : ORIGIN = 0x30000000, LENGTH = 0x20000
+
+    }
+
+    ENTRY(_start)
+
+    SECTIONS {
+
+     GROUP : {
+      .image_head: {
+       . = . + 0x0;
+      }
+      .init_bootstrap:{
+       *(.init_vector .init_vector.*)
+       *(.init_bootstrap .init_bootstrap.*)
+      }
+      .vector ALIGN(1024): {
+       _f_vector = .;
+       *(.vector .vector.*)
+       _e_vector = .;
+      }
+     } > REGION_ICCM
+
+     GROUP : {
+
+      .text ALIGN(4): {
+       _f_text = .;
+       *(TYPE text)
+       *(.text*)
+       _e_text = .;
+      }
+
+      .rodata ALIGN(4): {
+       _f_rodata = .;
+
+       _fctors = .;
+       *(.ctors*)
+       _ectors = .;
+       _fdtors = .;
+       *(.dtors*)
+       _edtors = .;
+       _feh_frame = .;
+       *(.eh_frame*)
+       _eeh_frame = .;
+
+       *(TYPE lit)
+
+       _e_rodata = .;
+      }
+
+     } > REGION_ICCM
+
+
+     GROUP : {
+      .data ALIGN(8): {
+       _f_data = .;
+       _f_sdata = .;
+       *(.sdata)
+       *(.sbss)
+       _e_sdata = .;
+       *(TYPE data)
+      }
+      .tls ALIGN(8): {
+       *(.tls*)
+       _e_data = .;
+      }
+     } > REGION_DCCM AT > REGION_ICCM
+
+     GROUP (NOLOAD) : {
+      .bss ALIGN(8): {
+       _f_bss = .;
+       *(TYPE bss)
+       _e_bss = .;
+      }
+      .stack ALIGN(4) SIZE(2048): {}
+      .heap? ALIGN(4) SIZE(8192): {}
+     } > REGION_DCCM
+
+     _f_stack = ADDR(.stack);
+     _e_stack = ADDR(.stack) + SIZEOF(.stack);
+     _f_heap = ADDR(.heap);
+     _e_heap = ADDR(.heap) + SIZEOF(.heap);
+
+     _load_addr_text = LOADADDR(.text);
+     _load_addr_rodata = LOADADDR(.rodata);
+     _load_addr_data = LOADADDR(.data);
+    }
+
+OUTPUT MODULE NAME:	obj_iotdk_10/mw_arcem9d/blinky_mw_arcem9d.elf
+OUTPUT MODULE FORMAT:	Absolute Executable
+_____________________________
+
+
+SIZE SUMMARY
+------------
+
+   Read-only Executable code         = 17632 (17.22KB)
+   Writable/Executable data          =  1468 ( 1.43KB)
+   Read only data (lit)              =  1392 ( 1.36KB)
+   Writable/Non-executable data      =     0 ( 0.00KB)
+   BSS(zero fill)                    = 11308 (11.04KB)
+   Unallocated (e.g., Debug)         = 134942 (131.78KB)
+
+   Total read only portion (code + lit)   = 19024 (18.58KB)
+   Total read/write portion (data + bss)  = 12776 (12.48KB)
+   Total non-BSS size (code+lit+data)     = 20492 (20.01KB)
+
+SECTION SUMMARY
+_______________
+
+OUTPUT/  TYPE   START     END
+ INPUT SECTION  ADDRESS   ADDRESS   LENGTH
+
+.image_head
+         bss    20000000  1fffffff  00000000
+.init_bootstrap
+         text   20000000  2000020b  0000020c
+.vector  data   20000400  200005bb  000001bc
+.text    text   200005bc  20003a65  000034aa
+.rodata  lit    20003a68  20004a9b  00001034
+.data    data   80000000  8000056f  00000570
+.tls     bss    80000570  8000056f  00000000
+.bss     bss    80000570  80000998  00000429
+.stack   bss    8000099c  8000119b  00000800
+.heap    bss    8000119c  8000319b  00002000
+
+
+SECTION DETAILS
+_______________
+
+OUTPUT/  TYPE   START     END
+ INPUT SECTION  ADDRESS   ADDRESS   LENGTH   MODULE NAME
+
+.image_head
+         bss    20000000  1fffffff  00000000
+
+
+.init_bootstrap
+         text   20000000  2000020b  0000020c
+
+    .init_vector
+                20000000  20000003  00000004  obj_iotdk_10/mw_arcem9d/arc/startup/arc_startup.o
+    .init_bootstrap
+                20000004  2000020b  00000208  obj_iotdk_10/mw_arcem9d/arc/startup/arc_startup.o
+                20000004   _start
+                20000004   _arc_reset
+                200001f8   _exit_loop
+                200001f8   _exit_halt
+
+.vector  data   20000400  200005bb  000001bc
+
+    .vector.exc_entry_table
+                20000400  200005bb  000001bc  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+                20000400   exc_entry_table
+
+.text    text   200005bc  20003a65  000034aa
+
+    .fini       200005bc  200005bf  00000004  obj_iotdk_10/mw_arcem9d/arc/startup/arc_startup.o
+                200005bc   _fini
+    .fini$999999
+                200005c0  200005c7  00000008  obj_iotdk_10/mw_arcem9d/arc/startup/arc_startup.o
+    .init       200005c8  200005cb  00000004  obj_iotdk_10/mw_arcem9d/arc/startup/arc_startup.o
+                200005c8   _init
+    .init$999999
+                200005cc  200005d3  00000008  obj_iotdk_10/mw_arcem9d/arc/startup/arc_startup.o
+    .vectors    200005d4  20000613  00000040  C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/libct.a(vectors.o)
+    .text       20000614  200008db  000002c8  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exc_asm.o)
+                20000614   exc_entry_cpu
+                20000784   exc_entry_int
+                20000828   exc_entry_firq
+    .text       200008dc  200008e3  00000008  C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/libct.a(vectors.o)
+    .text       200008e4  200008f3  00000010  C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/libmw.a(_ac_init_ad.o)
+                200008e4   _init_ad
+    .text.arc_cache_init
+                200008f4  200009d7  000000e4  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_cache.o)
+                200008f4   arc_cache_init
+    .text.board_delay_ms
+                200009d8  20000a89  000000b2  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+                200009d8   board_delay_ms
+    <padding>   20000a8a  20000a8b  00000002
+    .text.board_init
+                20000a8c  20000abb  00000030  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_init.o)
+                20000a8c   board_init
+    .text.board_main
+                20000abc  20000ad7  0000001c  obj_iotdk_10/mw_arcem9d/board/board.o
+                20000abc   board_main
+    .text.console_getchar
+                20000ad8  20000b11  0000003a  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+                20000ad8   console_getchar
+    <padding>   20000b12  20000b13  00000002
+    .text.console_putchar
+                20000b14  20000b41  0000002e  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+                20000b14   console_putchar
+    <padding>   20000b42  20000b43  00000002
+    .text.cpu_lock_save
+                20000b44  20000b49  00000006  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+                20000b44   cpu_lock_save
+    <padding>   20000b4a  20000b4b  00000002
+    .text.cpu_unlock
+                20000b4c  20000b51  00000006  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+                20000b4c   cpu_unlock
+    <padding>   20000b52  20000b53  00000002
+    .text.cpu_unlock_restore
+                20000b54  20000b59  00000006  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+                20000b54   cpu_unlock_restore
+    <padding>   20000b5a  20000b5b  00000002
+    .text.dfss_gpio_0_close
+                20000b5c  20000b65  0000000a  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000b66  20000b67  00000002
+    .text.dfss_gpio_0_control
+                20000b68  20000b75  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000b76  20000b77  00000002
+    .text.dfss_gpio_0_open
+                20000b78  20000b83  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .text.dfss_gpio_0_read
+                20000b84  20000b91  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000b92  20000b93  00000002
+    .text.dfss_gpio_0_write
+                20000b94  20000ba1  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000ba2  20000ba3  00000002
+    .text.dfss_gpio_1_close
+                20000ba4  20000bad  0000000a  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000bae  20000baf  00000002
+    .text.dfss_gpio_1_control
+                20000bb0  20000bbd  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000bbe  20000bbf  00000002
+    .text.dfss_gpio_1_open
+                20000bc0  20000bcb  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .text.dfss_gpio_1_read
+                20000bcc  20000bd9  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000bda  20000bdb  00000002
+    .text.dfss_gpio_1_write
+                20000bdc  20000be9  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000bea  20000beb  00000002
+    .text.dfss_gpio_2_close
+                20000bec  20000bf5  0000000a  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000bf6  20000bf7  00000002
+    .text.dfss_gpio_2_control
+                20000bf8  20000c05  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000c06  20000c07  00000002
+    .text.dfss_gpio_2_open
+                20000c08  20000c13  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .text.dfss_gpio_2_read
+                20000c14  20000c21  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000c22  20000c23  00000002
+    .text.dfss_gpio_2_write
+                20000c24  20000c31  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000c32  20000c33  00000002
+    .text.dfss_gpio_3_close
+                20000c34  20000c3d  0000000a  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000c3e  20000c3f  00000002
+    .text.dfss_gpio_3_control
+                20000c40  20000c4d  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000c4e  20000c4f  00000002
+    .text.dfss_gpio_3_open
+                20000c50  20000c5b  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .text.dfss_gpio_3_read
+                20000c5c  20000c69  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000c6a  20000c6b  00000002
+    .text.dfss_gpio_3_write
+                20000c6c  20000c79  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000c7a  20000c7b  00000002
+    .text.dfss_gpio_4_close
+                20000c7c  20000c85  0000000a  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000c86  20000c87  00000002
+    .text.dfss_gpio_4_control
+                20000c88  20000c95  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000c96  20000c97  00000002
+    .text.dfss_gpio_4_open
+                20000c98  20000ca3  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .text.dfss_gpio_4_read
+                20000ca4  20000cb1  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000cb2  20000cb3  00000002
+    .text.dfss_gpio_4_write
+                20000cb4  20000cc1  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000cc2  20000cc3  00000002
+    .text.dfss_gpio_5_close
+                20000cc4  20000ccd  0000000a  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000cce  20000ccf  00000002
+    .text.dfss_gpio_5_control
+                20000cd0  20000cdd  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000cde  20000cdf  00000002
+    .text.dfss_gpio_5_open
+                20000ce0  20000ceb  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .text.dfss_gpio_5_read
+                20000cec  20000cf9  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000cfa  20000cfb  00000002
+    .text.dfss_gpio_5_write
+                20000cfc  20000d09  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000d0a  20000d0b  00000002
+    .text.dfss_gpio_6_close
+                20000d0c  20000d15  0000000a  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000d16  20000d17  00000002
+    .text.dfss_gpio_6_control
+                20000d18  20000d25  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000d26  20000d27  00000002
+    .text.dfss_gpio_6_open
+                20000d28  20000d33  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .text.dfss_gpio_6_read
+                20000d34  20000d41  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000d42  20000d43  00000002
+    .text.dfss_gpio_6_write
+                20000d44  20000d51  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   20000d52  20000d53  00000002
+    .text.dfss_gpio_all_install
+                20000d54  20000f57  00000204  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                20000d54   dfss_gpio_all_install
+    .text.dfss_uart_0_close
+                20000f58  20000f61  0000000a  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    <padding>   20000f62  20000f63  00000002
+    .text.dfss_uart_0_control
+                20000f64  20000f71  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    <padding>   20000f72  20000f73  00000002
+    .text.dfss_uart_0_open
+                20000f74  20000f7f  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .text.dfss_uart_0_read
+                20000f80  20000f8d  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    <padding>   20000f8e  20000f8f  00000002
+    .text.dfss_uart_0_write
+                20000f90  20000f9d  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    <padding>   20000f9e  20000f9f  00000002
+    .text.dfss_uart_1_close
+                20000fa0  20000fa9  0000000a  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    <padding>   20000faa  20000fab  00000002
+    .text.dfss_uart_1_control
+                20000fac  20000fb9  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    <padding>   20000fba  20000fbb  00000002
+    .text.dfss_uart_1_open
+                20000fbc  20000fc7  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .text.dfss_uart_1_read
+                20000fc8  20000fd5  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    <padding>   20000fd6  20000fd7  00000002
+    .text.dfss_uart_1_write
+                20000fd8  20000fe5  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    <padding>   20000fe6  20000fe7  00000002
+    .text.dfss_uart_2_close
+                20000fe8  20000ff1  0000000a  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    <padding>   20000ff2  20000ff3  00000002
+    .text.dfss_uart_2_control
+                20000ff4  20001001  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    <padding>   20001002  20001003  00000002
+    .text.dfss_uart_2_open
+                20001004  2000100f  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .text.dfss_uart_2_read
+                20001010  2000101d  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    <padding>   2000101e  2000101f  00000002
+    .text.dfss_uart_2_write
+                20001020  2000102d  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    <padding>   2000102e  2000102f  00000002
+    .text.dfss_uart_3_close
+                20001030  20001039  0000000a  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    <padding>   2000103a  2000103b  00000002
+    .text.dfss_uart_3_control
+                2000103c  20001049  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    <padding>   2000104a  2000104b  00000002
+    .text.dfss_uart_3_open
+                2000104c  20001057  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .text.dfss_uart_3_read
+                20001058  20001065  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    <padding>   20001066  20001067  00000002
+    .text.dfss_uart_3_write
+                20001068  20001075  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    <padding>   20001076  20001077  00000002
+    .text.dump_protv_access_err
+                20001078  200010e5  0000006e  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    <padding>   200010e6  200010e7  00000002
+    .text.dw_pwm_timer_0_close
+                200010e8  200010f1  0000000a  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+    <padding>   200010f2  200010f3  00000002
+    .text.dw_pwm_timer_0_control
+                200010f4  20001103  00000010  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+    .text.dw_pwm_timer_0_isr
+                20001104  2000110f  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+    .text.dw_pwm_timer_0_open
+                20001110  20001119  0000000a  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+    <padding>   2000111a  2000111b  00000002
+    .text.dw_pwm_timer_0_write
+                2000111c  2000112d  00000012  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+    <padding>   2000112e  2000112f  00000002
+    .text.dw_pwm_timer_close
+                20001130  200011a7  00000078  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer.o)
+                20001130   dw_pwm_timer_close
+    .text.dw_pwm_timer_control
+                200011a8  2000133d  00000196  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer.o)
+                200011a8   dw_pwm_timer_control
+    <padding>   2000133e  2000133f  00000002
+    .text.dw_pwm_timer_isr_handler
+                20001340  200013db  0000009c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer.o)
+                20001340   dw_pwm_timer_isr_handler
+    .text.dw_pwm_timer_open
+                200013dc  2000145f  00000084  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer.o)
+                200013dc   dw_pwm_timer_open
+    .text.dw_pwm_timer_write
+                20001460  200015b3  00000154  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer.o)
+                20001460   dw_pwm_timer_write
+    .text.exc_handler_default
+                200015b4  20001847  00000294  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .text.exc_int_init
+                20001848  20001895  0000004e  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+                20001848   exc_int_init
+    <padding>   20001896  20001897  00000002
+    .text.gpio_4B_0_ISR
+                20001898  200018d7  00000040  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+    .text.gpio_4B_1_ISR
+                200018d8  20001917  00000040  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+    .text.gpio_4B_2_ISR
+                20001918  20001957  00000040  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+    .text.gpio_8B_0_ISR
+                20001958  20001997  00000040  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+    .text.gpio_8B_1_ISR
+                20001998  200019d7  00000040  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+    .text.gpio_8B_2_ISR
+                200019d8  20001a17  00000040  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+    .text.gpio_8B_3_ISR
+                20001a18  20001a57  00000040  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+    .text.gpio_get_dev
+                20001a58  20001a91  0000003a  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                20001a58   gpio_get_dev
+    <padding>   20001a92  20001a93  00000002
+    .text.gpio_int_cb0
+                20001a94  20001a9f  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .text.gpio_int_cb1
+                20001aa0  20001aab  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .text.gpio_int_cb2
+                20001aac  20001ab7  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .text.gpio_int_cb3
+                20001ab8  20001ac3  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .text.gpio_int_cb4
+                20001ac4  20001acf  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .text.gpio_int_cb5
+                20001ad0  20001adb  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .text.gpio_int_cb6
+                20001adc  20001ae7  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .text.int_disable
+                20001ae8  20001b03  0000001c  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+                20001ae8   int_disable
+    .text.int_enable
+                20001b04  20001b23  00000020  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+                20001b04   int_enable
+    .text.int_handler_default
+                20001b24  20001b5d  0000003a  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    <padding>   20001b5e  20001b5f  00000002
+    .text.int_handler_install
+                20001b60  20001b85  00000026  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+                20001b60   int_handler_install
+    <padding>   20001b86  20001b87  00000002
+    .text.io_arduino_config
+                20001b88  20001d55  000001ce  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(mux.o)
+                20001b88   io_arduino_config
+    <padding>   20001d56  20001d57  00000002
+    .text.io_gpio_close
+                20001d58  20001da5  0000004e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+                20001d58   io_gpio_close
+    <padding>   20001da6  20001da7  00000002
+    .text.io_gpio_ioctl
+                20001da8  20001e55  000000ae  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+                20001da8   io_gpio_ioctl
+    <padding>   20001e56  20001e57  00000002
+    .text.io_gpio_open
+                20001e58  20001ead  00000056  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+                20001e58   io_gpio_open
+    <padding>   20001eae  20001eaf  00000002
+    .text.io_gpio_read
+                20001eb0  20001ec5  00000016  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+                20001eb0   io_gpio_read
+    <padding>   20001ec6  20001ec7  00000002
+    .text.io_gpio_write
+                20001ec8  20001ed7  00000010  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+                20001ec8   io_gpio_write
+    .text.io_mux_init
+                20001ed8  20001ee9  00000012  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(mux.o)
+                20001ed8   io_mux_init
+    <padding>   20001eea  20001eeb  00000002
+    .text.io_pmod_config
+                20001eec  20001f79  0000008e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(mux.o)
+                20001eec   io_pmod_config
+    <padding>   20001f7a  20001f7b  00000002
+    .text.io_uart_close
+                20001f7c  20001fd9  0000005e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+                20001f7c   io_uart_close
+    <padding>   20001fda  20001fdb  00000002
+    .text.io_uart_ioctl
+                20001fdc  2000217d  000001a2  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+                20001fdc   io_uart_ioctl
+    <padding>   2000217e  2000217f  00000002
+    .text.io_uart_open
+                20002180  2000221d  0000009e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+                20002180   io_uart_open
+    <padding>   2000221e  2000221f  00000002
+    .text.io_uart_read
+                20002220  20002269  0000004a  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+                20002220   io_uart_read
+    <padding>   2000226a  2000226b  00000002
+    .text.io_uart_write
+                2000226c  200022d7  0000006c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+                2000226c   io_uart_write
+    .text.iotdk_timer_init
+                200022d8  20002317  00000040  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+                200022d8   iotdk_timer_init
+    .text.iotdk_timer_isr
+                20002318  20002373  0000005c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+    .text.main  20002374  2000256f  000001fc  obj_iotdk_10/mw_arcem9d/application/./main.o
+                20002374   main
+    .text.pll_fout_config
+                20002570  20002681  00000112  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(sysconf.o)
+                20002570   pll_fout_config
+    <padding>   20002682  20002683  00000002
+    .text.pwm_timer_get_dev
+                20002684  20002731  000000ae  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+                20002684   pwm_timer_get_dev
+    <padding>   20002732  20002733  00000002
+    .text.set_dps
+                20002734  200027b3  00000080  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_uart.o)
+    .text.ss_gpio_close
+                200027b4  200027e9  00000036  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_gpio.o)
+                200027b4   ss_gpio_close
+    <padding>   200027ea  200027eb  00000002
+    .text.ss_gpio_control
+                200027ec  20002947  0000015c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_gpio.o)
+                200027ec   ss_gpio_control
+    .text.ss_gpio_int_cb
+                20002948  200029a1  0000005a  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_gpio.o)
+                20002948   ss_gpio_int_cb
+    <padding>   200029a2  200029a3  00000002
+    .text.ss_gpio_open
+                200029a4  20002a57  000000b4  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_gpio.o)
+                200029a4   ss_gpio_open
+    .text.ss_gpio_read
+                20002a58  20002a81  0000002a  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_gpio.o)
+                20002a58   ss_gpio_read
+    <padding>   20002a82  20002a83  00000002
+    .text.ss_gpio_write
+                20002a84  20002ac1  0000003e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_gpio.o)
+                20002a84   ss_gpio_write
+    <padding>   20002ac2  20002ac3  00000002
+    .text.ss_uart_close
+                20002ac4  20002afb  00000038  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_uart.o)
+                20002ac4   ss_uart_close
+    .text.ss_uart_control
+                20002afc  20002c7f  00000184  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_uart.o)
+                20002afc   ss_uart_control
+    .text.ss_uart_err_cb
+                20002c80  20002c91  00000012  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_uart.o)
+                20002c80   ss_uart_err_cb
+    <padding>   20002c92  20002c93  00000002
+    .text.ss_uart_open
+                20002c94  20002d77  000000e4  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_uart.o)
+                20002c94   ss_uart_open
+    .text.ss_uart_read
+                20002d78  20002dff  00000088  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_uart.o)
+                20002d78   ss_uart_read
+    .text.ss_uart_rx_cb
+                20002e00  20002e1b  0000001c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_uart.o)
+                20002e00   ss_uart_rx_cb
+    .text.ss_uart_tx_cb
+                20002e1c  20002e37  0000001c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_uart.o)
+                20002e1c   ss_uart_tx_cb
+    .text.ss_uart_write
+                20002e38  20002eb5  0000007e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_uart.o)
+                20002e38   ss_uart_write
+    <padding>   20002eb6  20002eb7  00000002
+    .text.task_main
+                20002eb8  20002edd  00000026  obj_iotdk_10/mw_arcem9d/board/board.o
+    <padding>   20002ede  20002edf  00000002
+    .text.timer_calibrate_delay
+                20002ee0  2000304f  00000170  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_timer.o)
+                20002ee0   timer_calibrate_delay
+    .text.timer_current
+                20003050  20003081  00000032  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_timer.o)
+                20003050   timer_current
+    <padding>   20003082  20003083  00000002
+    .text.timer_init
+                20003084  200030c5  00000042  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_timer.o)
+                20003084   timer_init
+    <padding>   200030c6  200030c7  00000002
+    .text.timer_int_clear
+                200030c8  200030ef  00000028  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_timer.o)
+                200030c8   timer_int_clear
+    .text.timer_present
+                200030f0  20003119  0000002a  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_timer.o)
+                200030f0   timer_present
+    <padding>   2000311a  2000311b  00000002
+    .text.timer_start
+                2000311c  2000315b  00000040  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_timer.o)
+                2000311c   timer_start
+    .text.uart0_ISR
+                2000315c  20003161  00000006  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+    <padding>   20003162  20003163  00000002
+    .text.uart0_dmarx_ISR
+                20003164  20003165  00000002  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+    <padding>   20003166  20003167  00000002
+    .text.uart0_dmatx_ISR
+                20003168  20003169  00000002  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+    <padding>   2000316a  2000316b  00000002
+    .text.uart1_ISR
+                2000316c  20003171  00000006  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+    <padding>   20003172  20003173  00000002
+    .text.uart1_dmarx_ISR
+                20003174  20003175  00000002  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+    <padding>   20003176  20003177  00000002
+    .text.uart1_dmatx_ISR
+                20003178  20003179  00000002  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+    <padding>   2000317a  2000317b  00000002
+    .text.uart2_ISR
+                2000317c  20003181  00000006  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+    <padding>   20003182  20003183  00000002
+    .text.uart2_dmarx_ISR
+                20003184  20003185  00000002  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+    <padding>   20003186  20003187  00000002
+    .text.uart2_dmatx_ISR
+                20003188  20003189  00000002  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+    <padding>   2000318a  2000318b  00000002
+    .text.uart3_ISR
+                2000318c  20003191  00000006  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+    <padding>   20003192  20003193  00000002
+    .text.uart3_dmarx_ISR
+                20003194  20003195  00000002  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+    <padding>   20003196  20003197  00000002
+    .text.uart3_dmatx_ISR
+                20003198  20003199  00000002  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+    <padding>   2000319a  2000319b  00000002
+    .text.uart_err_cb0
+                2000319c  200031a7  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .text.uart_err_cb1
+                200031a8  200031b3  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .text.uart_err_cb2
+                200031b4  200031bf  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .text.uart_err_cb3
+                200031c0  200031cb  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .text.uart_get_dev
+                200031cc  20003319  0000014e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                200031cc   uart_get_dev
+    <padding>   2000331a  2000331b  00000002
+    .text.uart_isr_proc
+                2000331c  2000359d  00000282  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+    <padding>   2000359e  2000359f  00000002
+    .text.uart_rx_cb0
+                200035a0  200035ab  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .text.uart_rx_cb1
+                200035ac  200035b7  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .text.uart_rx_cb2
+                200035b8  200035c3  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .text.uart_rx_cb3
+                200035c4  200035cf  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .text.uart_tx_cb0
+                200035d0  200035db  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .text.uart_tx_cb1
+                200035dc  200035e7  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .text.uart_tx_cb2
+                200035e8  200035f3  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .text.uart_tx_cb3
+                200035f4  200035ff  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .text.xprintf
+                20003600  2000362b  0000002c  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(xprintf.o)
+                20003600   xprintf
+    .text.xprintf_setup
+                2000362c  200036b9  0000008e  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+                2000362c   xprintf_setup
+    <padding>   200036ba  200036bb  00000002
+    .text.xvprintf
+                200036bc  20003a65  000003aa  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(xprintf.o)
+                200036bc   xvprintf
+    .text$_xcheckagu_small1_to_any
+                20003a66  20003a65  00000000  C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/xcheckno.o
+                20003a66   __Xagu_small_check1_to_any
+    .text$_xcheckbarrel_shifter_bs3_to_any
+                20003a66  20003a65  00000000  C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/xcheckno.o
+                20003a66   __Xbarrel_shifter_bs_check3_to_any
+    .text$_xcheckbarrel_shifter_sa3_to_any
+                20003a66  20003a65  00000000  C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/xcheckno.o
+                20003a66   __Xbarrel_shifter_sa_check3_to_any
+    .text$_xcheckcode_density2_to_any
+                20003a66  20003a65  00000000  C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/xcheckno.o
+                20003a66   __Xcode_density_check2_to_any
+    .text$_xcheckdiv1_to_any
+                20003a66  20003a65  00000000  C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/xcheckno.o
+                20003a66   __Xdiv_check1_to_any
+    .text$_xcheckdsp33_to_any
+                20003a66  20003a65  00000000  C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/xcheckno.o
+                20003a66   __Xdsp_check33_to_any
+    .text$_xcheckdsp_accshift_full33_to_any
+                20003a66  20003a65  00000000  C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/xcheckno.o
+                20003a66   __Xdsp_accshift_full_check33_to_any
+    .text$_xcheckdsp_complex33_to_any
+                20003a66  20003a65  00000000  C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/xcheckno.o
+                20003a66   __Xdsp_complex_check33_to_any
+    .text$_xcheckdsp_divsqrt_radix233_to_any
+                20003a66  20003a65  00000000  C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/xcheckno.o
+                20003a66   __Xdsp_divsqrt_radix2_check33_to_any
+    .text$_xcheckdsp_itu33_to_any
+                20003a66  20003a65  00000000  C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/xcheckno.o
+                20003a66   __Xdsp_itu_check33_to_any
+    .text$_xcheckfpus_div1_to_any
+                20003a66  20003a65  00000000  C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/xcheckno.o
+                20003a66   __Xfpus_div_check1_to_any
+    .text$_xcheckfpus_mac1_to_any
+                20003a66  20003a65  00000000  C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/xcheckno.o
+                20003a66   __Xfpus_mac_check1_to_any
+    .text$_xcheckmacd2_to_any
+                20003a66  20003a65  00000000  C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/xcheckno.o
+                20003a66   __Xmacd_check2_to_any
+    .text$_xcheckmpy162_to_any
+                20003a66  20003a65  00000000  C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/xcheckno.o
+                20003a66   __Xmpy16_check2_to_any
+    .text$_xchecknorm3_to_any
+                20003a66  20003a65  00000000  C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/xcheckno.o
+                20003a66   __Xnorm_check3_to_any
+    .text$_xcheckswap3_to_any
+                20003a66  20003a65  00000000  C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/xcheckno.o
+                20003a66   __Xswap_check3_to_any
+    .text$_xcheckunaligned1_to_any
+                20003a66  20003a65  00000000  C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/xcheckno.o
+                20003a66   __Xunaligned_check1_to_any
+    .text$_xcheckxy32_to_any
+                20003a66  20003a65  00000000  C:/ARC/MetaWare/arc/lib/av2em/le/harv/xlib/xcheckno.o
+                20003a66   __Xxy_check32_to_any
+
+.rodata  lit    20003a68  20004a9b  00001034
+
+    .rodata..L.str
+                20003a68  20003a79  00000012  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .rodata..L.str
+                20003a7a  20003a7e  00000005  obj_iotdk_10/mw_arcem9d/board/board.o
+    .rodata..L.str
+                20003a7f  20003a9a  0000001c  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+    .rodata..L.str
+                20003a9b  20003aba  00000020  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.1
+                20003abb  20003ac1  00000007  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .rodata..L.str.1
+                20003ac2  20003acd  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+    .rodata..L.str.1
+                20003ace  20003b02  00000035  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.10
+                20003b03  20003b12  00000010  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.11
+                20003b13  20003b19  00000007  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.12
+                20003b1a  20003b21  00000008  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.13
+                20003b22  20003b2e  0000000d  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.14
+                20003b2f  20003b39  0000000b  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.15
+                20003b3a  20003b44  0000000b  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.16
+                20003b45  20003b52  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.17
+                20003b53  20003b5d  0000000b  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.18
+                20003b5e  20003b76  00000019  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.19
+                20003b77  20003b78  00000002  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.2
+                20003b79  20003baf  00000037  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .rodata..L.str.2
+                20003bb0  20003bb8  00000009  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+    .rodata..L.str.2
+                20003bb9  20003bc6  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.20
+                20003bc7  20003bd3  0000000d  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.21
+                20003bd4  20003beb  00000018  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.22
+                20003bec  20003bfb  00000010  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.23
+                20003bfc  20003c0d  00000012  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.24
+                20003c0e  20003c38  0000002b  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.25
+                20003c39  20003c5c  00000024  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.26
+                20003c5d  20003c7c  00000020  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.27
+                20003c7d  20003c96  0000001a  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.28
+                20003c97  20003cc7  00000031  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.29
+                20003cc8  20003cf3  0000002c  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.3
+                20003cf4  20003d03  00000010  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .rodata..L.str.3
+                20003d04  20003d24  00000021  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+    .rodata..L.str.3
+                20003d25  20003d2a  00000006  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.30
+                20003d2b  20003d5b  00000031  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.31
+                20003d5c  20003d8b  00000030  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.32
+                20003d8c  20003dbe  00000033  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.33
+                20003dbf  20003dcc  0000000e  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.34
+                20003dcd  20003dea  0000001e  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.35
+                20003deb  20003e0d  00000023  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.36
+                20003e0e  20003e31  00000024  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.37
+                20003e32  20003e56  00000025  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.38
+                20003e57  20003e7b  00000025  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.39
+                20003e7c  20003e9f  00000024  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.4
+                20003ea0  20003ed2  00000033  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+    .rodata..L.str.4
+                20003ed3  20003edf  0000000d  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.40
+                20003ee0  20003ef9  0000001a  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.41
+                20003efa  20003f10  00000017  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.42
+                20003f11  20003f26  00000016  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.43
+                20003f27  20003f2a  00000004  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.44
+                20003f2b  20003f2e  00000004  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.45
+                20003f2f  20003f32  00000004  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.46
+                20003f33  20003f3d  0000000b  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.47
+                20003f3e  20003f5a  0000001d  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.48
+                20003f5b  20003f6c  00000012  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.49
+                20003f6d  20003f80  00000014  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.5
+                20003f81  20003f85  00000005  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+    .rodata..L.str.5
+                20003f86  20003f97  00000012  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.50
+                20003f98  20003faa  00000013  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.51
+                20003fab  20003fbb  00000011  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.52
+                20003fbc  20003fea  0000002f  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.53
+                20003feb  20004016  0000002c  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.54
+                20004017  20004041  0000002b  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.55
+                20004042  2000406d  0000002c  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.56
+                2000406e  200040a0  00000033  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.57
+                200040a1  200040d5  00000035  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.58
+                200040d6  20004108  00000033  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.59
+                20004109  20004130  00000028  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.6
+                20004131  200043e4  000002b4  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+    .rodata..L.str.6
+                200043e5  200043f6  00000012  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.60
+                200043f7  20004412  0000001c  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.61
+                20004413  20004432  00000020  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.7
+                20004433  2000443e  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.8
+                2000443f  2000444a  0000000c  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata..L.str.9
+                2000444b  20004455  0000000b  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    <padding>   20004456  20004457  00000002
+    .rodata..Lswitch.table.gpio_get_dev
+                20004458  20004473  0000001c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .rodata..Lswitch.table.io_arduino_config
+                20004474  200044c3  00000050  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(mux.o)
+    .rodata..Lswitch.table.uart_get_dev
+                200044c4  200044d3  00000010  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .rodata.dump_protv_access_err
+                200044d4  200045e3  00000110  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata.dw_pwm_timer_control
+                200045e4  20004603  00000020  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer.o)
+    .rodata.exc_handler_default
+                20004604  200047ab  000001a8  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .rodata.io_arduino_config
+                200047ac  200047ff  00000054  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(mux.o)
+    .rodata.io_gpio_ioctl
+                20004800  200048bf  000000c0  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+    .rodata.io_uart_ioctl
+                200048c0  20004957  00000098  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+    .rodata.pll_configuration
+                20004958  200049af  00000058  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(sysconf.o)
+    .rodata.ss_gpio_control
+                200049b0  200049d7  00000028  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_gpio.o)
+    .rodata.ss_uart_control
+                200049d8  20004a1f  00000048  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_uart.o)
+    .rodata.uart_isr_proc
+                20004a20  20004a3f  00000020  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+    .rodata.xvprintf
+                20004a40  20004a9b  0000005c  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(xprintf.o)
+
+.data    data   80000000  8000056f  00000570
+
+    .data.dw_pwm_timer_0_ch_isr
+                80000000  80000007  00000008  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+    .data.exc_int_handler_table
+                80000008  800001c3  000001bc  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+                80000008   exc_int_handler_table
+    .data.gl_count
+                800001c4  800001c7  00000004  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_timer.o)
+                800001c4   gl_count
+    .data.gl_loops_per_jiffy
+                800001c8  800001cf  00000008  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_timer.o)
+                800001c8   gl_loops_per_jiffy
+    .data.gpio_context0
+                800001d0  800001ef  00000020  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .data.gpio_context1
+                800001f0  8000020f  00000020  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .data.gpio_context2
+                80000210  8000022f  00000020  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .data.gpio_context3
+                80000230  8000024f  00000020  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .data.gpio_context4
+                80000250  8000026f  00000020  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .data.gpio_context5
+                80000270  8000028f  00000020  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .data.gpio_context6
+                80000290  800002af  00000020  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .data.gpio_devs
+                800002b0  8000034f  000000a0  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+    .data.s_main_args
+                80000350  80000357  00000008  obj_iotdk_10/mw_arcem9d/board/board.o
+                80000350   s_main_args
+    .data.sysconf_reg_ptr
+                80000358  8000035b  00000004  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(sysconf.o)
+                80000358   sysconf_reg_ptr
+    .data.uart_context0
+                8000035c  80000377  0000001c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .data.uart_context1
+                80000378  80000393  0000001c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .data.uart_context2
+                80000394  800003af  0000001c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .data.uart_context3
+                800003b0  800003cb  0000001c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .data.uart_devs
+                800003cc  8000056f  000001a4  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+
+.tls     bss    80000570  8000056f  00000000
+
+
+.bss     bss    80000570  80000998  00000429
+
+    .bss.board_timer_update.sys_hz_update
+                80000570  80000573  00000004  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+    .bss.board_timer_update.sys_ms_update
+                80000574  80000577  00000004  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+    .bss.console_uart
+                80000578  8000057b  00000004  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+    .bss.dcache_config.2
+                8000057c  8000057d  00000002  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_cache.o)
+    <padding>   8000057e  8000057f  00000002
+    .bss.dcache_config.3
+                80000580  80000583  00000004  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_cache.o)
+    .bss.dfss_uart_0
+                80000584  800005db  00000058  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .bss.dfss_uart_1
+                800005dc  80000633  00000058  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .bss.dfss_uart_2
+                80000634  8000068b  00000058  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .bss.dfss_uart_3
+                8000068c  800006e3  00000058  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .bss.dw_pwm_timer_0
+                800006e4  800006ff  0000001c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+    .bss.dw_pwm_timer_0_ctrl
+                80000700  8000071f  00000020  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+    .bss.dw_pwm_timer_0_handler
+                80000720  80000737  00000018  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+    .bss.dw_pwm_timer_0_mode
+                80000738  8000073d  00000006  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+    <padding>   8000073e  8000073f  00000002
+    .bss.exc_nest_count
+                80000740  80000743  00000004  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+                80000740   exc_nest_count
+    .bss.gl_iotdk_ms_cnt
+                80000744  80000747  00000004  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+                80000744   gl_iotdk_ms_cnt
+    .bss.gl_iotdk_sys_hz_cnt
+                80000748  8000074f  00000008  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+                80000748   gl_iotdk_sys_hz_cnt
+    .bss.gpio_0 80000750  8000077b  0000002c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .bss.gpio_1 8000077c  800007a7  0000002c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .bss.gpio_2 800007a8  800007d3  0000002c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .bss.gpio_3 800007d4  800007ff  0000002c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .bss.gpio_4 80000800  8000082b  0000002c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .bss.gpio_4b2
+                8000082c  8000082f  00000004  obj_iotdk_10/mw_arcem9d/application/./main.o
+                8000082c   gpio_4b2
+    .bss.gpio_5 80000830  8000085b  0000002c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .bss.gpio_6 8000085c  80000887  0000002c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .bss.gpio_get_dev.install_flag
+                80000888  80000888  00000001  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    <padding>   80000889  8000088b  00000003
+    .bss.gpio_handles
+                8000088c  800008bb  00000030  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+    .bss.gpio_int_handlers0
+                800008bc  800008db  00000020  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .bss.gpio_int_handlers1
+                800008dc  800008fb  00000020  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .bss.gpio_int_handlers2
+                800008fc  8000091b  00000020  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .bss.gpio_int_handlers3
+                8000091c  8000093b  00000020  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .bss.gpio_int_handlers4
+                8000093c  8000094b  00000010  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .bss.gpio_int_handlers5
+                8000094c  8000095b  00000010  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .bss.gpio_int_handlers6
+                8000095c  8000096b  00000010  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .bss.icache_config.2
+                8000096c  8000096d  00000002  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_cache.o)
+    <padding>   8000096e  8000096f  00000002
+    .bss.icache_config.3
+                80000970  80000973  00000004  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_cache.o)
+    .bss.outptr 80000974  80000977  00000004  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(xprintf.o)
+    .bss.pwm_timer_get_dev.install_flag
+                80000978  80000978  00000001  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+    <padding>   80000979  8000097b  00000003
+    .bss.uart_get_dev.install_flag
+                8000097c  8000097c  00000001  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    <padding>   8000097d  8000097f  00000003
+    .bss.uart_handles
+                80000980  8000098f  00000010  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+    .bss.xfunc_in
+                80000990  80000993  00000004  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(xprintf.o)
+                80000990   xfunc_in
+    .bss.xfunc_out
+                80000994  80000997  00000004  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(xprintf.o)
+                80000994   xfunc_out
+    .bss.xprintf_setup_flag
+                80000998  80000998  00000001  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+
+.stack   bss    8000099c  8000119b  00000800
+
+
+.heap    bss    8000119c  8000319b  00002000
+
+
+.debug_ranges
+         info   00000000  00000def  00000df0
+
+    .debug_ranges
+                00000000  00000017  00000018  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .debug_ranges
+                00000018  0000002f  00000018  obj_iotdk_10/mw_arcem9d/board/board.o
+    .debug_ranges
+                00000030  0000006f  00000040  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+    .debug_ranges
+                00000070  00000367  000002f8  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .debug_ranges
+                00000368  0000039f  00000038  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer.o)
+    .debug_ranges
+                000003a0  000003d7  00000038  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_gpio.o)
+    .debug_ranges
+                000003d8  00000427  00000050  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+    .debug_ranges
+                00000428  000004f7  000000d0  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(mux.o)
+    .debug_ranges
+                000004f8  000005df  000000e8  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(sysconf.o)
+    .debug_ranges
+                000005e0  00000647  00000068  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+    .debug_ranges
+                00000648  00000677  00000030  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+    .debug_ranges
+                00000678  000007df  00000168  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(xprintf.o)
+    .debug_ranges
+                000007e0  00000847  00000068  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_cache.o)
+    .debug_ranges
+                00000848  000009b7  00000170  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .debug_ranges
+                000009b8  000009ff  00000048  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_timer.o)
+    .debug_ranges
+                00000a00  00000cd7  000002d8  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .debug_ranges
+                00000cd8  00000d57  00000080  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_uart.o)
+    .debug_ranges
+                00000d58  00000def  00000098  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+
+.comment info   00000000  000000c0  000000c1
+
+    .comment    00000000  00000027  00000028  <Linker Defined>
+    .comment    00000028  000000c0  00000099  obj_iotdk_10/mw_arcem9d/application/./main.o
+
+.debug_loc
+         info   00000000  000067eb  000067ec
+
+    .debug_loc  00000000  00000177  00000178  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .debug_loc  00000178  0000018a  00000013  obj_iotdk_10/mw_arcem9d/board/board.o
+    .debug_loc  0000018b  000002f9  0000016f  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+    .debug_loc  000002fa  00000a65  0000076c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .debug_loc  00000a66  00001467  00000a02  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer.o)
+    .debug_loc  00001468  000018f6  0000048f  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_gpio.o)
+    .debug_loc  000018f7  00001a09  00000113  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+    .debug_loc  00001a0a  00001e14  0000040b  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(mux.o)
+    .debug_loc  00001e15  0000217a  00000366  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(sysconf.o)
+    .debug_loc  0000217b  000027a4  0000062a  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+    .debug_loc  000027a5  000027d7  00000033  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+    .debug_loc  000027d8  0000372c  00000f55  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(xprintf.o)
+    .debug_loc  0000372d  000040ef  000009c3  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_cache.o)
+    .debug_loc  000040f0  000046d5  000005e6  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .debug_loc  000046d6  00004c86  000005b1  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_timer.o)
+    .debug_loc  00004c87  000051c6  00000540  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .debug_loc  000051c7  00005b2e  00000968  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_uart.o)
+    .debug_loc  00005b2f  000067eb  00000cbd  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+
+.arcextmap
+         info   00000000  00000b4d  00000b4e
+
+    .arcextmap.aux.1408
+                00000000  0000000d  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1409
+                0000000e  0000001c  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1410
+                0000001d  0000002a  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1411
+                0000002b  00000039  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1432
+                0000003a  00000049  00000010  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1438
+                0000004a  0000005c  00000013  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1439
+                0000005d  0000006b  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1472
+                0000006c  0000007d  00000012  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1473
+                0000007e  0000008f  00000012  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1474
+                00000090  000000a1  00000012  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1475
+                000000a2  000000b3  00000012  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1488
+                000000b4  000000c5  00000012  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1489
+                000000c6  000000d7  00000012  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1504
+                000000d8  000000ea  00000013  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1505
+                000000eb  000000fd  00000013  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1506
+                000000fe  00000110  00000013  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1507
+                00000111  00000123  00000013  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1528
+                00000124  00000133  00000010  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1529
+                00000134  00000143  00000010  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1664
+                00000144  00000151  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1665
+                00000152  0000015f  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1666
+                00000160  0000016d  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1667
+                0000016e  0000017c  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1668
+                0000017d  0000018b  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1669
+                0000018c  00000199  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1670
+                0000019a  000001a8  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1671
+                000001a9  000001b7  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1672
+                000001b8  000001c5  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1673
+                000001c6  000001d4  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1680
+                000001d5  000001e3  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1681
+                000001e4  000001f1  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.1682
+                000001f2  000001ff  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.256
+                00000200  0000020e  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.257
+                0000020f  0000021f  00000011  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.258
+                00000220  0000022e  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.33
+                0000022f  0000023d  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.34
+                0000023e  0000024e  00000011  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.35
+                0000024f  0000025d  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.768
+                0000025e  0000026c  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.769
+                0000026d  0000027d  00000011  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.770
+                0000027e  00000287  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.771
+                00000288  00000291  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.772
+                00000292  0000029b  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.aux.773
+                0000029c  000002a5  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.auxreg.1666
+                000002a6  000002b7  00000012  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.auxreg.1668
+                000002b8  000002ca  00000013  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.auxreg.1669
+                000002cb  000002dc  00000012  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.auxreg.1670
+                000002dd  000002ef  00000013  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.core.32
+                000002f0  000002f9  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.core.33
+                000002fa  00000303  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.core.34
+                00000304  0000030d  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.core.35
+                0000030e  00000317  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.core.58
+                00000318  0000031f  00000008  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.core.59
+                00000320  00000327  00000008  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.1.5.0
+                00000328  00000333  0000000c  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.1.5.1
+                00000334  00000340  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.1.5.4f
+                00000341  0000034d  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.1.5.5
+                0000034e  00000358  0000000b  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.0
+                00000359  00000362  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.1
+                00000363  0000036c  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.10
+                0000036d  00000377  0000000b  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.11
+                00000378  00000382  0000000b  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.12
+                00000383  0000038d  0000000b  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.13
+                0000038e  00000397  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.14
+                00000398  000003a1  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.15
+                000003a2  000003ab  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.16
+                000003ac  000003b5  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.17
+                000003b6  000003bf  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.2
+                000003c0  000003c9  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.24
+                000003ca  000003d5  0000000c  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.25
+                000003d6  000003e2  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.26
+                000003e3  000003ec  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.28
+                000003ed  000003fb  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.29
+                000003fc  0000040a  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.3
+                0000040b  00000414  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.30
+                00000415  00000424  00000010  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.31
+                00000425  00000434  00000010  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.32
+                00000435  00000443  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.33
+                00000444  00000452  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.34
+                00000453  0000045f  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.35
+                00000460  0000046c  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.36
+                0000046d  0000047a  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.37
+                0000047b  00000488  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.38
+                00000489  00000497  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.39
+                00000498  000004a6  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.4
+                000004a7  000004b1  0000000b  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.40
+                000004b2  000004bd  0000000c  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.41
+                000004be  000004ca  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.42
+                000004cb  000004d6  0000000c  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.43
+                000004d7  000004e3  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.44
+                000004e4  000004f0  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.48
+                000004f1  000004fa  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.49
+                000004fb  00000505  0000000b  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.5
+                00000506  0000050f  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.6
+                00000510  0000051a  0000000b  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.7
+                0000051b  00000524  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.8
+                00000525  0000052f  0000000b  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.5.9
+                00000530  0000053a  0000000b  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.6.0
+                0000053b  00000546  0000000c  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.2.6.25
+                00000547  00000555  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.4.30
+                00000556  0000055f  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.4.31
+                00000560  0000056a  0000000b  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.0
+                0000056b  00000573  00000009  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.1
+                00000574  0000057c  00000009  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.10
+                0000057d  00000586  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.11
+                00000587  00000590  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.12
+                00000591  0000059b  0000000b  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.13
+                0000059c  000005a8  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.13f
+                000005a9  000005b4  0000000c  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.2
+                000005b5  000005bd  00000009  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.20f
+                000005be  000005ca  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.21f
+                000005cb  000005d7  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.22f
+                000005d8  000005e7  00000010  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.23f
+                000005e8  000005f7  00000010  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.28f
+                000005f8  00000604  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.29f
+                00000605  00000612  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.3
+                00000613  0000061b  00000009  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.30f
+                0000061c  00000628  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.31f
+                00000629  00000636  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.32
+                00000637  00000644  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.33
+                00000645  00000650  0000000c  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.33f
+                00000651  0000065d  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.34
+                0000065e  00000669  0000000c  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.34f
+                0000066a  00000676  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.35
+                00000677  00000682  0000000c  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.35f
+                00000683  00000690  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.36
+                00000691  0000069c  0000000c  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.36f
+                0000069d  000006a8  0000000c  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.37
+                000006a9  000006b4  0000000c  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.37f
+                000006b5  000006c0  0000000c  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.38
+                000006c1  000006ca  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.39
+                000006cb  000006d4  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.40
+                000006d5  000006e1  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.41
+                000006e2  000006ef  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.41f
+                000006f0  000006fd  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.42
+                000006fe  00000709  0000000c  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.43
+                0000070a  00000716  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.44
+                00000717  00000722  0000000c  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.45
+                00000723  0000072f  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.46
+                00000730  0000073a  0000000b  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.6
+                0000073b  00000744  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.5.7
+                00000745  0000074e  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.0
+                0000074f  00000759  0000000b  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.0f
+                0000075a  00000767  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.1
+                00000768  00000772  0000000b  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.10
+                00000773  0000077c  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.11
+                0000077d  00000787  0000000b  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.12
+                00000788  00000791  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.13
+                00000792  0000079c  0000000b  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.14
+                0000079d  000007a7  0000000b  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.15
+                000007a8  000007b3  0000000c  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.16
+                000007b4  000007bd  0000000a  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.17
+                000007be  000007cc  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.17f
+                000007cd  000007dc  00000010  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.18
+                000007dd  000007e7  0000000b  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.19
+                000007e8  000007f2  0000000b  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.1f
+                000007f3  000007ff  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.2
+                00000800  0000080a  0000000b  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.20
+                0000080b  00000818  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.21
+                00000819  00000824  0000000c  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.22
+                00000825  00000831  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.23
+                00000832  0000083e  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.24
+                0000083f  0000084b  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.25
+                0000084c  00000858  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.26
+                00000859  00000867  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.27
+                00000868  00000875  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.27f
+                00000876  00000884  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.28
+                00000885  00000890  0000000c  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.29
+                00000891  0000089c  0000000c  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.2f
+                0000089d  000008ab  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.3
+                000008ac  000008ba  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.30
+                000008bb  000008c7  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.31
+                000008c8  000008d4  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.32
+                000008d5  000008e1  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.33
+                000008e2  000008ef  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.34
+                000008f0  000008fc  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.35
+                000008fd  0000090a  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.36
+                0000090b  00000917  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.37
+                00000918  00000925  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.38
+                00000926  00000932  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.39
+                00000933  00000940  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.3f
+                00000941  0000096f  0000002f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.4
+                00000970  0000097d  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.40
+                0000097e  0000098a  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.41
+                0000098b  00000998  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.42
+                00000999  000009a5  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.43
+                000009a6  000009b3  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.44
+                000009b4  000009c1  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.45
+                000009c2  000009d0  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.48
+                000009d1  000009dd  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.49
+                000009de  000009ea  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.4f
+                000009eb  00000a1a  00000030  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.5
+                00000a1b  00000a26  0000000c  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.50
+                00000a27  00000a33  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.51
+                00000a34  00000a40  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.52
+                00000a41  00000a4d  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.53
+                00000a4e  00000a5a  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.54
+                00000a5b  00000a67  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.55
+                00000a68  00000a74  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.56
+                00000a75  00000a81  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.57
+                00000a82  00000a8e  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.58
+                00000a8f  00000a9b  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.59
+                00000a9c  00000aa8  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.5f
+                00000aa9  00000ab6  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.6
+                00000ab7  00000ac2  0000000c  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.60
+                00000ac3  00000ace  0000000c  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.61
+                00000acf  00000ada  0000000c  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.6f
+                00000adb  00000ae8  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.7
+                00000ae9  00000af3  0000000b  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.7f
+                00000af4  00000b00  0000000d  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.8
+                00000b01  00000b30  00000030  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.8f
+                00000b31  00000b3f  0000000f  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .arcextmap.inst.3.6.9f
+                00000b40  00000b4d  0000000e  obj_iotdk_10/mw_arcem9d/application/./main.o
+
+.debug_str
+         info   00000000  00002eb2  00002eb3
+
+    .debug_str  00000000  000005e8  000005e9  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .debug_str  00000000  00000081  00000082  obj_iotdk_10/mw_arcem9d/board/board.o
+    .debug_str  00000000  000003bd  000003be  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+    .debug_str  00000000  000005c6  000005c7  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .debug_str  00000000  0000027d  0000027e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer.o)
+    .debug_str  00000000  00000120  00000121  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_gpio.o)
+    .debug_str  00000000  00000115  00000116  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_init.o)
+    .debug_str  00000000  00000155  00000156  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+    .debug_str  00000000  00000106  00000107  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(mux.o)
+    .debug_str  00000000  000003d8  000003d9  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(sysconf.o)
+    .debug_str  00000000  0000015d  0000015e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+    .debug_str  00000000  000002d5  000002d6  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+    .debug_str  00000000  0000010d  0000010e  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(xprintf.o)
+    .debug_str  00000000  00000211  00000212  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_cache.o)
+    .debug_str  00000000  00000466  00000467  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .debug_str  00000000  000000ef  000000f0  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_timer.o)
+    .debug_str  00000000  00000387  00000388  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .debug_str  00000000  00000169  0000016a  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_uart.o)
+    .debug_str  00000000  0000023a  0000023b  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+
+.debug_macinfo
+         info   00000000  00000012  00000013
+
+    .debug_macinfo
+                00000000  00000000  00000001  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .debug_macinfo
+                00000001  00000001  00000001  obj_iotdk_10/mw_arcem9d/board/board.o
+    .debug_macinfo
+                00000002  00000002  00000001  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+    .debug_macinfo
+                00000003  00000003  00000001  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .debug_macinfo
+                00000004  00000004  00000001  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer.o)
+    .debug_macinfo
+                00000005  00000005  00000001  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_gpio.o)
+    .debug_macinfo
+                00000006  00000006  00000001  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_init.o)
+    .debug_macinfo
+                00000007  00000007  00000001  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+    .debug_macinfo
+                00000008  00000008  00000001  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(mux.o)
+    .debug_macinfo
+                00000009  00000009  00000001  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(sysconf.o)
+    .debug_macinfo
+                0000000a  0000000a  00000001  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+    .debug_macinfo
+                0000000b  0000000b  00000001  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+    .debug_macinfo
+                0000000c  0000000c  00000001  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(xprintf.o)
+    .debug_macinfo
+                0000000d  0000000d  00000001  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_cache.o)
+    .debug_macinfo
+                0000000e  0000000e  00000001  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .debug_macinfo
+                0000000f  0000000f  00000001  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_timer.o)
+    .debug_macinfo
+                00000010  00000010  00000001  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .debug_macinfo
+                00000011  00000011  00000001  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_uart.o)
+    .debug_macinfo
+                00000012  00000012  00000001  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+
+.debug_pubnames
+         info   00000000  00001ec9  00001eca
+
+    .debug_pubnames
+                00000000  00000058  00000059  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .debug_pubnames
+                00000059  000000aa  00000052  obj_iotdk_10/mw_arcem9d/board/board.o
+    .debug_pubnames
+                000000ab  00000108  0000005e  obj_iotdk_10/mw_arcem9d/arc/startup/arc_startup.o
+    .debug_pubnames
+                00000109  0000026d  00000165  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+    .debug_pubnames
+                0000026e  00000848  000005db  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .debug_pubnames
+                00000849  00000a29  000001e1  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer.o)
+    .debug_pubnames
+                00000a2a  00000aa8  0000007f  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_gpio.o)
+    .debug_pubnames
+                00000aa9  00000adc  00000034  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_init.o)
+    .debug_pubnames
+                00000add  00000bcd  000000f1  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+    .debug_pubnames
+                00000bce  00000cca  000000fd  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(mux.o)
+    .debug_pubnames
+                00000ccb  00000f07  0000023d  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(sysconf.o)
+    .debug_pubnames
+                00000f08  00001020  00000119  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+    .debug_pubnames
+                00001021  000010e4  000000c4  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+    .debug_pubnames
+                000010e5  0000119a  000000b6  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(xprintf.o)
+    .debug_pubnames
+                0000119b  0000136d  000001d3  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_cache.o)
+    .debug_pubnames
+                0000136e  00001777  0000040a  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .debug_pubnames
+                00001778  0000183e  000000c7  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_timer.o)
+    .debug_pubnames
+                0000183f  00001bf0  000003b2  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .debug_pubnames
+                00001bf1  00001d56  00000166  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_uart.o)
+    .debug_pubnames
+                00001d57  00001ec9  00000173  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+
+.debug_pubtypes
+         info   00000000  00001322  00001323
+
+    .debug_pubtypes
+                00000000  000001d5  000001d6  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .debug_pubtypes
+                000001d6  00000220  0000004b  obj_iotdk_10/mw_arcem9d/board/board.o
+    .debug_pubtypes
+                00000221  00000423  00000203  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+    .debug_pubtypes
+                00000424  00000540  0000011d  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .debug_pubtypes
+                00000541  00000784  00000244  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer.o)
+    .debug_pubtypes
+                00000785  000008cf  0000014b  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_gpio.o)
+    .debug_pubtypes
+                000008d0  000008fd  0000002e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_init.o)
+    .debug_pubtypes
+                000008fe  00000973  00000076  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+    .debug_pubtypes
+                00000974  000009d5  00000062  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(mux.o)
+    .debug_pubtypes
+                000009d6  00000a75  000000a0  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(sysconf.o)
+    .debug_pubtypes
+                00000a76  00000b1c  000000a7  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+    .debug_pubtypes
+                00000b1d  00000c6d  00000151  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+    .debug_pubtypes
+                00000c6e  00000d19  000000ac  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(xprintf.o)
+    .debug_pubtypes
+                00000d1a  00000dac  00000093  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_cache.o)
+    .debug_pubtypes
+                00000dad  00000e7f  000000d3  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .debug_pubtypes
+                00000e80  00000f01  00000082  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_timer.o)
+    .debug_pubtypes
+                00000f02  000010b6  000001b5  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .debug_pubtypes
+                000010b7  0000125b  000001a5  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_uart.o)
+    .debug_pubtypes
+                0000125c  00001322  000000c7  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+
+.debug_aranges
+         info   00000000  00000baf  00000bb0
+
+    .debug_aranges
+                00000000  0000003f  00000040  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .debug_aranges
+                00000040  0000006f  00000030  obj_iotdk_10/mw_arcem9d/board/board.o
+    .debug_aranges
+                00000070  000000af  00000040  obj_iotdk_10/mw_arcem9d/arc/startup/arc_startup.o
+    .debug_aranges
+                000000b0  0000012f  00000080  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+    .debug_aranges
+                00000130  00000357  00000228  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .debug_aranges
+                00000358  0000039f  00000048  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer.o)
+    .debug_aranges
+                000003a0  000003e7  00000048  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_gpio.o)
+    .debug_aranges
+                000003e8  00000407  00000020  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_init.o)
+    .debug_aranges
+                00000408  0000046f  00000068  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+    .debug_aranges
+                00000470  000004bf  00000050  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(mux.o)
+    .debug_aranges
+                000004c0  000005af  000000f0  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(sysconf.o)
+    .debug_aranges
+                000005b0  00000637  00000088  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+    .debug_aranges
+                00000638  00000687  00000050  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+    .debug_aranges
+                00000688  0000070f  00000088  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(xprintf.o)
+    .debug_aranges
+                00000710  000007a7  00000098  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_cache.o)
+    .debug_aranges
+                000007a8  0000089f  000000f8  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .debug_aranges
+                000008a0  00000907  00000068  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_timer.o)
+    .debug_aranges
+                00000908  00000927  00000020  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exc_asm.o)
+    .debug_aranges
+                00000928  00000a97  00000170  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .debug_aranges
+                00000a98  00000af7  00000060  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_uart.o)
+    .debug_aranges
+                00000af8  00000baf  000000b8  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+
+.debug_frame
+         info   00000000  00001f17  00001f18
+
+    .debug_frame
+                00000000  00000093  00000094  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .debug_frame
+                00000094  0000010b  00000078  obj_iotdk_10/mw_arcem9d/board/board.o
+    .debug_frame
+                0000010c  00000197  0000008c  obj_iotdk_10/mw_arcem9d/arc/startup/arc_startup.o
+    .debug_frame
+                00000198  0000026f  000000d8  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+    .debug_frame
+                00000270  0000063f  000003d0  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .debug_frame
+                00000640  00000787  00000148  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer.o)
+    .debug_frame
+                00000788  000008c7  00000140  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_gpio.o)
+    .debug_frame
+                000008c8  0000092f  00000068  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_init.o)
+    .debug_frame
+                00000930  00000a3b  0000010c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+    .debug_frame
+                00000a3c  00000b4f  00000114  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(mux.o)
+    .debug_frame
+                00000b50  00000da3  00000254  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(sysconf.o)
+    .debug_frame
+                00000da4  00000f83  000001e0  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+    .debug_frame
+                00000f84  0000105f  000000dc  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+    .debug_frame
+                00001060  0000131b  000002bc  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(xprintf.o)
+    .debug_frame
+                0000131c  000014d3  000001b8  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_cache.o)
+    .debug_frame
+                000014d4  0000175f  0000028c  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .debug_frame
+                00001760  0000187f  00000120  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_timer.o)
+    .debug_frame
+                00001880  00001b77  000002f8  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .debug_frame
+                00001b78  00001cdf  00000168  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_uart.o)
+    .debug_frame
+                00001ce0  00001f17  00000238  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+
+.debug_line
+         info   00000000  0000324b  0000324c
+
+    .debug_line 00000000  00000175  00000176  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .debug_line 00000176  00000234  000000bf  obj_iotdk_10/mw_arcem9d/board/board.o
+    .debug_line 00000235  00000481  0000024d  obj_iotdk_10/mw_arcem9d/arc/startup/arc_startup.o
+    .debug_line 00000482  00000661  000001e0  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+    .debug_line 00000662  00000baa  00000549  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .debug_line 00000bab  00000e3c  00000292  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer.o)
+    .debug_line 00000e3d  00001026  000001ea  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_gpio.o)
+    .debug_line 00001027  000010b3  0000008d  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_init.o)
+    .debug_line 000010b4  000011d0  0000011d  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+    .debug_line 000011d1  000013a5  000001d5  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(mux.o)
+    .debug_line 000013a6  00001681  000002dc  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(sysconf.o)
+    .debug_line 00001682  0000189b  0000021a  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+    .debug_line 0000189c  000019cd  00000132  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+    .debug_line 000019ce  00001c9c  000002cf  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(xprintf.o)
+    .debug_line 00001c9d  00001f48  000002ac  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_cache.o)
+    .debug_line 00001f49  000023f3  000004ab  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .debug_line 000023f4  000025b8  000001c5  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_timer.o)
+    .debug_line 000025b9  00002757  0000019f  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exc_asm.o)
+    .debug_line 00002758  00002c2e  000004d7  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .debug_line 00002c2f  00002f30  00000302  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_uart.o)
+    .debug_line 00002f31  0000324b  0000031b  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+
+.debug_info
+         info   00000000  00007981  00007982
+
+    .debug_info 00000000  000005b3  000005b4  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .debug_info 000005b4  000006f1  0000013e  obj_iotdk_10/mw_arcem9d/board/board.o
+    .debug_info 000006f2  0000093a  00000249  obj_iotdk_10/mw_arcem9d/arc/startup/arc_startup.o
+    .debug_info 0000093b  00000ec6  0000058c  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+    .debug_info 00000ec7  00001bd6  00000d10  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .debug_info 00001bd7  000027e6  00000c10  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer.o)
+    .debug_info 000027e7  00002c4a  00000464  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_gpio.o)
+    .debug_info 00002c4b  00002d2e  000000e4  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_init.o)
+    .debug_info 00002d2f  00002f5c  0000022e  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+    .debug_info 00002f5d  0000330b  000003af  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(mux.o)
+    .debug_info 0000330c  00003a14  00000709  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(sysconf.o)
+    .debug_info 00003a15  00003e83  0000046f  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+    .debug_info 00003e84  000042b9  00000436  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+    .debug_info 000042ba  00004a17  0000075e  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(xprintf.o)
+    .debug_info 00004a18  00005074  0000065d  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_cache.o)
+    .debug_info 00005075  00005c4d  00000bd9  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .debug_info 00005c4e  00005f73  00000326  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_timer.o)
+    .debug_info 00005f74  00006051  000000de  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exc_asm.o)
+    .debug_info 00006052  00006b32  00000ae1  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .debug_info 00006b33  00007429  000008f7  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_uart.o)
+    .debug_info 0000742a  00007981  00000558  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+
+.debug_abbrev
+         info   00000000  00001dc5  00001dc6
+
+    .debug_abbrev
+                00000000  00000157  00000158  obj_iotdk_10/mw_arcem9d/application/./main.o
+    .debug_abbrev
+                00000158  00000266  0000010f  obj_iotdk_10/mw_arcem9d/board/board.o
+    .debug_abbrev
+                00000267  0000028e  00000028  obj_iotdk_10/mw_arcem9d/arc/startup/arc_startup.o
+    .debug_abbrev
+                0000028f  00000407  00000179  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+    .debug_abbrev
+                00000408  000005ff  000001f8  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+    .debug_abbrev
+                00000600  000007d9  000001da  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer.o)
+    .debug_abbrev
+                000007da  000008c9  000000f0  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_gpio.o)
+    .debug_abbrev
+                000008ca  00000929  00000060  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_init.o)
+    .debug_abbrev
+                0000092a  00000a8d  00000164  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+    .debug_abbrev
+                00000a8e  00000be4  00000157  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(mux.o)
+    .debug_abbrev
+                00000be5  00000df3  0000020f  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(sysconf.o)
+    .debug_abbrev
+                00000df4  00000f4b  00000158  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+    .debug_abbrev
+                00000f4c  0000109e  00000153  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+    .debug_abbrev
+                0000109f  0000126a  000001cc  obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(xprintf.o)
+    .debug_abbrev
+                0000126b  000013f0  00000186  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_cache.o)
+    .debug_abbrev
+                000013f1  000016c4  000002d4  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+    .debug_abbrev
+                000016c5  00001845  00000181  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_timer.o)
+    .debug_abbrev
+                00001846  00001864  0000001f  obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exc_asm.o)
+    .debug_abbrev
+                00001865  00001a79  00000215  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+    .debug_abbrev
+                00001a7a  00001c9f  00000226  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_uart.o)
+    .debug_abbrev
+                00001ca0  00001dc5  00000126  obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+
+.strtab  info   00000000  00001455  00001456
+
+    .strtab     00000000  00001455  00001456  obj_iotdk_10/mw_arcem9d/blinky_mw_arcem9d.elf
+
+.symtab  info   00000000  0000226f  00002270
+
+    .symtab     00000000  0000226f  00002270  obj_iotdk_10/mw_arcem9d/blinky_mw_arcem9d.elf
+
+.shstrtab
+         info   00000000  00000122  00000123
+
+    .shstrtab   00000000  00000122  00000123  obj_iotdk_10/mw_arcem9d/blinky_mw_arcem9d.elf
+
+.ARC.attributes
+         info   00000000  0000003a  0000003b
+
+    .ARC.attributes
+                00000000  0000003a  0000003b  obj_iotdk_10/mw_arcem9d/blinky_mw_arcem9d.elf
+
+CROSS REFERENCE BY FUNCTIONS
+---------------------------------
+
+SYMBOL                        FUNCTIONS REFERENCING
+
+__Xagu_small_check1_to_any     arc_cache_init
+__Xbarrel_shifter_bs_check3_to_any
+                               arc_cache_init
+__Xbarrel_shifter_sa_check3_to_any
+                               arc_cache_init
+__Xcode_density_check2_to_any  arc_cache_init
+__Xdiv_check1_to_any           arc_cache_init
+__Xdsp_accshift_full_check33_to_any
+                               arc_cache_init
+__Xdsp_check33_to_any          arc_cache_init
+__Xdsp_complex_check33_to_any  arc_cache_init
+__Xdsp_divsqrt_radix2_check33_to_any
+                               arc_cache_init
+__Xdsp_itu_check33_to_any      arc_cache_init
+__Xfpus_div_check1_to_any      arc_cache_init
+__Xfpus_mac_check1_to_any      arc_cache_init
+__Xmacd_check2_to_any          arc_cache_init
+__Xmpy16_check2_to_any         arc_cache_init
+__Xnorm_check3_to_any          arc_cache_init
+__Xswap_check3_to_any          arc_cache_init
+__Xunaligned_check1_to_any     arc_cache_init
+__Xxy_check32_to_any           arc_cache_init
+_arc_reset                     exc_entry_table
+_init_ad                       board_delay_ms
+                               board_main
+                               console_getchar
+                               gpio_8B_0_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+                               int_disable
+                               pll_fout_config
+                               ss_uart_read
+                               timer_current
+                               uart_get_dev
+board_delay_ms                 main
+board_init                     board_main
+board_timer_update.sys_hz_update@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+                               iotdk_timer_isr@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+board_timer_update.sys_ms_update@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+                               iotdk_timer_isr@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+console_getchar                xprintf_setup
+console_putchar                xprintf_setup
+console_uart@obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+                               console_getchar
+                               console_putchar
+                               xprintf_setup
+cpu_lock_save                  arc_cache_init
+                               timer_calibrate_delay
+cpu_unlock                     board_main
+cpu_unlock_restore             arc_cache_init
+                               timer_calibrate_delay
+dcache_config.2@obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_cache.o)
+                               arc_cache_init
+dcache_config.3@obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_cache.o)
+                               arc_cache_init
+dfss_gpio_0_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_0_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_0_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_0_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_0_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_1_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_1_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_1_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_1_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_1_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_2_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_2_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_2_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_2_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_2_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_3_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_3_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_3_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_3_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_3_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_4_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_4_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_4_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_4_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_4_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_5_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_5_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_5_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_5_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_5_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_6_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_6_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_6_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_6_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_6_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+dfss_gpio_all_install          gpio_get_dev
+dfss_uart_0@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+dfss_uart_0_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+dfss_uart_0_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+dfss_uart_0_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+dfss_uart_0_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+dfss_uart_0_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+dfss_uart_1@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+dfss_uart_1_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+dfss_uart_1_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+dfss_uart_1_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+dfss_uart_1_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+dfss_uart_1_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+dfss_uart_2@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+dfss_uart_2_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+dfss_uart_2_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+dfss_uart_2_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+dfss_uart_2_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+dfss_uart_2_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+dfss_uart_3@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+dfss_uart_3_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+dfss_uart_3_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+dfss_uart_3_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+dfss_uart_3_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+dfss_uart_3_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+dump_protv_access_err@obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+                               exc_handler_default@obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+dw_pwm_timer_0@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+                               dw_pwm_timer_0_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+                               dw_pwm_timer_0_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+                               dw_pwm_timer_0_isr@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+                               dw_pwm_timer_0_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+                               dw_pwm_timer_0_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+                               pwm_timer_get_dev
+dw_pwm_timer_0_ch_isr@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+                               pwm_timer_get_dev
+dw_pwm_timer_0_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+                               pwm_timer_get_dev
+dw_pwm_timer_0_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+                               pwm_timer_get_dev
+dw_pwm_timer_0_ctrl@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+                               pwm_timer_get_dev
+dw_pwm_timer_0_handler@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+                               dw_pwm_timer_0_ch_isr@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+dw_pwm_timer_0_isr@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+                               pwm_timer_get_dev
+dw_pwm_timer_0_mode@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+                               pwm_timer_get_dev
+dw_pwm_timer_0_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+                               pwm_timer_get_dev
+dw_pwm_timer_0_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+                               pwm_timer_get_dev
+dw_pwm_timer_close             dw_pwm_timer_0_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+dw_pwm_timer_control           dw_pwm_timer_0_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+dw_pwm_timer_isr_handler       dw_pwm_timer_0_isr@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+dw_pwm_timer_open              dw_pwm_timer_0_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+dw_pwm_timer_write             dw_pwm_timer_0_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+exc_entry_cpu                  exc_entry_table
+exc_entry_int                  exc_entry_table
+exc_handler_default@obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+                               exc_int_handler_table
+exc_int_handler_table          int_handler_install
+gl_count                       timer_calibrate_delay
+gl_iotdk_ms_cnt                board_delay_ms
+                               iotdk_timer_isr@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+gl_iotdk_sys_hz_cnt            iotdk_timer_isr@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+gl_loops_per_jiffy             timer_calibrate_delay
+gpio_0@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+gpio_1@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+gpio_2@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+gpio_3@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+gpio_4@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+gpio_4B_0_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+                               gpio_devs@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+gpio_4B_1_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+                               gpio_devs@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+gpio_4B_2_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+                               gpio_devs@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+gpio_4b2                       main
+gpio_5@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+gpio_6@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+gpio_8B_0_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+                               gpio_devs@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+gpio_8B_1_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+                               gpio_devs@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+gpio_8B_2_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+                               gpio_devs@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+gpio_8B_3_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+                               gpio_devs@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+gpio_context0@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_0_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_0_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_0_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_0_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_0_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+                               gpio_int_cb0@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+gpio_context1@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_1_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_1_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_1_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_1_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_1_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+                               gpio_int_cb1@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+gpio_context2@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_2_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_2_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_2_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_2_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_2_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+                               gpio_int_cb2@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+gpio_context3@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_3_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_3_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_3_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_3_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_3_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+                               gpio_int_cb3@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+gpio_context4@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_4_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_4_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_4_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_4_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_4_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+                               gpio_int_cb4@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+gpio_context5@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_5_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_5_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_5_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_5_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_5_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+                               gpio_int_cb5@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+gpio_context6@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_6_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_6_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_6_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_6_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_6_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_all_install
+                               gpio_int_cb6@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+gpio_devs@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+                               io_gpio_open
+gpio_get_dev                   main
+gpio_get_dev.install_flag@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               gpio_get_dev
+gpio_handles@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+                               gpio_4B_0_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+                               gpio_4B_1_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+                               gpio_4B_2_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+                               gpio_8B_0_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+                               gpio_8B_1_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+                               gpio_8B_2_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+                               gpio_8B_3_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(gpio.o)
+                               io_gpio_close
+                               io_gpio_ioctl
+                               io_gpio_open
+                               io_gpio_read
+                               io_gpio_write
+gpio_int_cb0@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               gpio_context0@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+gpio_int_cb1@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               gpio_context1@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+gpio_int_cb2@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               gpio_context2@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+gpio_int_cb3@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               gpio_context3@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+gpio_int_cb4@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               gpio_context4@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+gpio_int_cb5@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               gpio_context5@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+gpio_int_cb6@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               gpio_context6@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+gpio_int_handlers0@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               gpio_context0@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+gpio_int_handlers1@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               gpio_context1@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+gpio_int_handlers2@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               gpio_context2@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+gpio_int_handlers3@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               gpio_context3@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+gpio_int_handlers4@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               gpio_context4@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+gpio_int_handlers5@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               gpio_context5@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+gpio_int_handlers6@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               gpio_context6@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+icache_config.2@obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_cache.o)
+                               arc_cache_init
+icache_config.3@obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_cache.o)
+                               arc_cache_init
+int_disable                    dw_pwm_timer_close
+                               dw_pwm_timer_control
+                               dw_pwm_timer_open
+                               dw_pwm_timer_write
+                               iotdk_timer_init
+                               ss_gpio_close
+                               ss_gpio_control
+                               ss_uart_close
+int_enable                     dw_pwm_timer_control
+                               dw_pwm_timer_write
+                               iotdk_timer_init
+                               ss_gpio_control
+                               ss_gpio_open
+                               ss_uart_open
+int_handler_default@obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+                               exc_int_handler_table
+int_handler_install            dw_pwm_timer_open
+                               io_gpio_close
+                               io_gpio_open
+                               io_uart_close
+                               io_uart_open
+                               iotdk_timer_init
+io_arduino_config              main
+io_gpio_close                  ss_gpio_close
+io_gpio_ioctl                  ss_gpio_control
+                               ss_gpio_open
+io_gpio_open                   ss_gpio_open
+io_gpio_read                   ss_gpio_read
+                               ss_gpio_write
+io_gpio_write                  ss_gpio_write
+io_mux_init                    board_init
+io_pmod_config                 board_init
+io_uart_close                  ss_uart_close
+io_uart_ioctl                  set_dps@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_uart.o)
+                               ss_uart_control
+                               ss_uart_open
+io_uart_open                   ss_uart_open
+io_uart_read                   ss_uart_control
+                               ss_uart_read
+io_uart_write                  ss_uart_control
+                               ss_uart_write
+iotdk_timer_init               board_init
+iotdk_timer_isr@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+                               iotdk_timer_init
+main                           task_main@obj_iotdk_10/mw_arcem9d/board/board.o
+outptr@obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(xprintf.o)
+                               xvprintf
+pll_configuration@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(sysconf.o)
+                               pll_fout_config
+pll_fout_config                board_init
+pwm_timer_get_dev              main
+pwm_timer_get_dev.install_flag@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dw_pwm_timer_obj.o)
+                               pwm_timer_get_dev
+s_main_args                    task_main@obj_iotdk_10/mw_arcem9d/board/board.o
+set_dps@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(ss_uart.o)
+                               ss_uart_control
+                               ss_uart_open
+ss_gpio_close                  dfss_gpio_0_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_1_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_2_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_3_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_4_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_5_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_6_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+ss_gpio_control                dfss_gpio_0_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_1_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_2_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_3_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_4_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_5_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_6_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+ss_gpio_int_cb                 gpio_int_cb0@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               gpio_int_cb1@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               gpio_int_cb2@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               gpio_int_cb3@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               gpio_int_cb4@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               gpio_int_cb5@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               gpio_int_cb6@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+ss_gpio_open                   dfss_gpio_0_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_1_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_2_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_3_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_4_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_5_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_6_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+ss_gpio_read                   dfss_gpio_0_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_1_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_2_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_3_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_4_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_5_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_6_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+ss_gpio_write                  dfss_gpio_0_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_1_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_2_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_3_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_4_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_5_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+                               dfss_gpio_6_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_gpio_obj.o)
+ss_uart_close                  dfss_uart_0_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_1_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_2_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_3_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+ss_uart_control                dfss_uart_0_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_1_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_2_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_3_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+ss_uart_err_cb                 uart_err_cb0@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_err_cb1@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_err_cb2@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_err_cb3@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+ss_uart_open                   dfss_uart_0_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_1_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_2_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_3_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+ss_uart_read                   dfss_uart_0_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_1_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_2_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_3_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+ss_uart_rx_cb                  uart_rx_cb0@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_rx_cb1@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_rx_cb2@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_rx_cb3@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+ss_uart_tx_cb                  uart_tx_cb0@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_tx_cb1@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_tx_cb2@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_tx_cb3@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+ss_uart_write                  dfss_uart_0_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_1_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_2_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_3_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+sysconf_reg_ptr                io_arduino_config
+                               io_mux_init
+                               io_pmod_config
+                               pll_fout_config
+task_main@obj_iotdk_10/mw_arcem9d/board/board.o
+                               board_main
+timer_calibrate_delay          board_main
+timer_current                  board_delay_ms
+timer_init                     board_init
+timer_int_clear                iotdk_timer_isr@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(iotdk_timer.o)
+timer_present                  iotdk_timer_init
+timer_start                    iotdk_timer_init
+uart0_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+                               uart_devs@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+uart0_dmarx_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+                               uart_devs@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+uart0_dmatx_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+                               uart_devs@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+uart1_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+                               uart_devs@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+uart1_dmarx_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+                               uart_devs@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+uart1_dmatx_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+                               uart_devs@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+uart2_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+                               uart_devs@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+uart2_dmarx_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+                               uart_devs@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+uart2_dmatx_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+                               uart_devs@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+uart3_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+                               uart_devs@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+uart3_dmarx_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+                               uart_devs@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+uart3_dmatx_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+                               uart_devs@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+uart_context0@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_0_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_0_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_0_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_0_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_0_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_err_cb0@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+                               uart_rx_cb0@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_tx_cb0@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+uart_context1@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_1_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_1_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_1_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_1_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_1_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_err_cb1@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+                               uart_rx_cb1@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_tx_cb1@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+uart_context2@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_2_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_2_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_2_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_2_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_2_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_err_cb2@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+                               uart_rx_cb2@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_tx_cb2@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+uart_context3@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_3_close@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_3_control@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_3_open@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_3_read@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               dfss_uart_3_write@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_err_cb3@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+                               uart_rx_cb3@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_tx_cb3@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+uart_devs@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+                               io_uart_open
+uart_err_cb0@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_context0@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+uart_err_cb1@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_context1@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+uart_err_cb2@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_context2@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+uart_err_cb3@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_context3@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+uart_get_dev                   xprintf_setup
+uart_get_dev.install_flag@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_get_dev
+uart_handles@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+                               io_uart_close
+                               io_uart_ioctl
+                               io_uart_open
+                               io_uart_read
+                               io_uart_write
+                               uart_isr_proc@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+uart_isr_proc@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+                               uart0_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+                               uart1_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+                               uart2_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+                               uart3_ISR@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(uart.o)
+uart_rx_cb0@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_context0@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+uart_rx_cb1@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_context1@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+uart_rx_cb2@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_context2@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+uart_rx_cb3@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_context3@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+uart_tx_cb0@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_context0@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+uart_tx_cb1@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_context1@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+uart_tx_cb2@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_context2@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+uart_tx_cb3@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+                               uart_context3@obj_iotdk_10/mw_arcem9d/libembarc.a(libboard_iotdk.a)(dfss_uart_obj.o)
+xfunc_in                       xprintf_setup
+xfunc_out                      xprintf_setup
+                               xvprintf
+xprintf                        dump_protv_access_err@obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+                               exc_handler_default@obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+                               int_handler_default@obj_iotdk_10/mw_arcem9d/libembarc.a(libcpuarc.a)(arc_exception.o)
+                               main
+                               xprintf_setup
+xprintf_setup                  board_main
+xprintf_setup_flag@obj_iotdk_10/mw_arcem9d/libembarc.a(libmidcommon.a)(console_io.o)
+                               xprintf_setup
+xvprintf                       xprintf
+
+
+START ADDRESS:	20000004
